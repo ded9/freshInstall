@@ -1,0 +1,131 @@
+:set autoindent
+:set tabstop=4
+:set shiftwidth=4
+:set smarttab
+:set softtabstop=4
+:set mouse=a
+
+
+call plug#begin()
+
+Plug 'https://github.com/ray-x/go.nvim'
+Plug 'https://github.com/ray-x/guihua.lua'
+Plug 'https://github.com/nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
+Plug 'https://github.com/preservim/nerdtree' " NerdTree
+Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
+Plug 'https://github.com/vim-airline/vim-airline' " Status bar
+Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
+Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
+Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
+Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
+Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons 
+Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
+Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
+Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
+Plug 'https://github.com/mfussenegger/nvim-dap' " debugger - dap
+Plug 'https://github.com/josa42/coc-go' " CocInstall
+Plug 'https://github.com/rcarriga/nvim-dap-ui' " - dap
+Plug 'https://github.com/leoluz/nvim-dap-go'
+Plug 'https://github.com/nvim-telescope/telescope-dap.nvim'
+Plug 'https://github.com/theHamsta/nvim-dap-virtual-text'
+set encoding=UTF-8
+
+
+
+
+call plug#end()
+
+
+lua require('dap-go').setup()
+lua require("dapui").setup()
+
+
+nnoremap <C-f> :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
+nnoremap <silent> <F5> <Cmd>lua require'dap'.continue()<CR>
+nnoremap <silent> <F10> <Cmd>lua require'dap'.step_over()<CR>
+nnoremap <silent> <F11> <Cmd>lua require'dap'.step_into()<CR>
+nnoremap <silent> <F12> <Cmd>lua require'dap'.step_out()<CR>
+nnoremap <silent> <F2> <Cmd>lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <silent> <F3> <Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+nnoremap <silent> <Leader>lp <Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+nnoremap <silent> <Leader>dr <Cmd>lua require'dap'.repl.open()<CR>
+nnoremap <silent> <Leader>dl <Cmd>lua require'dap'.run_last()<CR>
+nmap <silent> <leader><F7> :lua require('dap-go').debug_test()<CR>
+
+nmap <F8> :TagbarToggle<CR>
+
+:set completeopt-=preview " For No Previews
+
+:colorscheme jellybeans
+
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="~"
+
+" --- Just Some Notes ---
+" :PlugClean :PlugInstall :UpdateRemotePlugins
+"
+" :CocInstall coc-python
+" :CocInstall coc-clangd
+" :CocInstall coc-snippets
+" :CocCommand snippets.edit... FOR EACH FILE TYPE
+
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
+_______________________________________________________________________________________________________________
+
+
+
+alt + arrow to switch
+ctrl + d = exit
+md5sum 
+
+netstat da checkna
+
+ls -l *smb* | grep os
+smb-os-discovery.nse
+
+tursq fail v koito tursq neshto
+
+
+    Instead of Left arrow, left, left, left, use CTRL+A to go to the start of the line or Alt+B to move back one word.
+    Instead of Right arrow, right, right, right, use CTRL+E to move to the end of the line, or Alt+F to move forward a word
+
+cut this shit
+cut -d ":" -f 1
+
+    find . -name flag1.txt: find the file named “flag1.txt” in the current directory
+    find /home -name flag1.txt: find the file names “flag1.txt” in the /home directory
+    find / -type d -name config: find the directory named config under “/”
+    find / -type f -perm 0777: find files with the 777 permissions (files readable, writable, and executable by all users)
+    find / -perm a=x: find executable files
+    find /home -user frank: find all files for user “frank” under “/home”
+    find / -mtime 10: find files that were modified in the last 10 days
+    find / -atime 10: find files that were accessed in the last 10 day
+    find / -cmin -60: find files changed within the last hour (60 minutes)
+    find / -amin -60: find files accesses within the last hour (60 minutes)
+    find / -size 50M: find files with a 50 MB size  “-type f 2>/dev/null” to redirect errors to “
+
+
+history | grep sources
+
+/etc/systemd]
+└─# nvim resolved.conf
