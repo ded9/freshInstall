@@ -129,4 +129,4 @@ history | grep sources
 
 /etc/systemd]
 └─# nvim resolved.conf
-zstd ----------------------- compres
+zstd ----------------------- compress
